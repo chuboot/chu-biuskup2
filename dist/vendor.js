@@ -11337,16 +11337,13 @@ core.use(modules);
 
 // import styles bundle
 
-var swiper = new core(".mySwiper", {
-  spaceBetween: 30,
-  centeredSlides: true,
+var swiper = new core(".swiper-container", {
+  pagination: {
+    el: ".swiper-pagination"
+  },
   autoplay: {
     delay: 2500,
     disableOnInteraction: false
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
   },
   navigation: {
     nextEl: ".swiper-button-next",

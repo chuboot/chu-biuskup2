@@ -6,111 +6,64 @@
 
 "use strict";
 /* harmony import */ var _vendor_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(814);
-/* harmony import */ var _script_component_app_footer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(837);
-/* harmony import */ var _script_component_app_footer_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_script_component_app_footer_js__WEBPACK_IMPORTED_MODULE_1__);
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+/* harmony import */ var _script_component_app_bar_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(705);
+/* harmony import */ var _script_component_app_bar_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_script_component_app_bar_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _script_component_app_footer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(837);
+/* harmony import */ var _script_component_app_footer_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_script_component_app_footer_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _script_view_main_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(932);
+/* harmony import */ var _script_view_main_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_script_view_main_js__WEBPACK_IMPORTED_MODULE_3__);
 
 
 
 
-//slider AJAX
 
-var slidesCom = document.querySelector(".swiper-slide");
-fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=17c8dffc0cbd61894a0460817bbba88e&language=en-US&page=1").then(function (response) {
-  return response.json();
-}).then(function (response) {
-  var moviess = response.results;
-  var movies = moviess.slice(0, 5);
-  renderAllSlides(movies);
-  console.log(movies);
-});
-var renderAllSlides = function renderAllSlides(slides) {
-  var slidesCom = document.querySelector(".swiper-wrapper");
-  slidesCom.innerHTML = "";
-  slides.forEach(function (sld) {
-    slidesCom.innerHTML += "\n        \n        <div class=\"swiper-slide\">\n              <img\n                src=\"https://www.themoviedb.org/t/p/original/".concat(sld.backdrop_path, "\"\n                alt=\"\"\n              />\n              <div class=\"caption\">\n                <span>").concat(sld.release_date, "</span>\n                <h1>").concat(sld.title, "</h1>\n                <button class=\"btn\">View Movie</button>\n                <button class=\"btn-p\">Watch Trailer</button>\n              </div>\n            </div>\n      ");
-  });
-};
+document.addEventListener("DOMContentLoaded", (_script_view_main_js__WEBPACK_IMPORTED_MODULE_3___default()));
 
-//navbar in mobile
-var btn = document.querySelector(".burger-btn");
-var menu = document.querySelector(".nav-links");
-var links = document.querySelectorAll(".nav-links li a");
-btn.addEventListener("click", function () {
-  menu.classList.toggle("nav-active");
-});
-for (var i = 0; i < links.length; i++) {
-  links[i].addEventListener("click", function () {
-    menu.classList.toggle("nav-active");
-  });
-}
-//change bg when scroll
-var navbar = document.querySelector("header");
-window.addEventListener("scroll", function () {
-  var valueScroll = window.scrollY;
-  // console.log(valueScroll);
-  if (valueScroll < 70) {
-    navbar.classList.remove("bg-nav-color");
-  } else {
-    navbar.classList.add("bg-nav-color");
+/***/ }),
+
+/***/ 705:
+/***/ (() => {
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct.bind(); } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+var AppBar = /*#__PURE__*/function (_HTMLElement) {
+  _inherits(AppBar, _HTMLElement);
+  var _super = _createSuper(AppBar);
+  function AppBar() {
+    var _this;
+    _classCallCheck(this, AppBar);
+    _this = _super.call(this);
+    _this.shadowDOM = _this.attachShadow({
+      mode: "open"
+    });
+    return _this;
   }
-});
-
-//Popular Movies AJAX
-fetch("https://api.themoviedb.org/3/movie/popular?api_key=17c8dffc0cbd61894a0460817bbba88e&language=en-US&page=1").then(function (response) {
-  return response.json();
-}).then(function (response) {
-  var movies = response.results;
-  var _iterator = _createForOfIteratorHelper(movies),
-    _step;
-  try {
-    for (_iterator.s(); !(_step = _iterator.n()).done;) {
-      var movie = _step.value;
-      console.log(movie);
+  _createClass(AppBar, [{
+    key: "connectedCallback",
+    value: function connectedCallback() {
+      this.render();
     }
-  } catch (err) {
-    _iterator.e(err);
-  } finally {
-    _iterator.f();
-  }
-  renderAllMovies(movies);
-});
-var renderAllMovies = function renderAllMovies(movies) {
-  var listMovieElement = document.querySelector("#listMovie");
-  listMovieElement.innerHTML = "";
-  movies.forEach(function (movie) {
-    listMovieElement.innerHTML += "\n        <div class=\"card\">\n                <img src=\"https://www.themoviedb.org/t/p/original/".concat(movie.poster_path, "\" alt=\"\" />\n                <h5 class=\"title\">").concat(movie.title, "</h5>\n        </div>\n      ");
-  });
-};
-
-//Popular TV Series AJAX
-fetch("https://api.themoviedb.org/3/tv/popular?api_key=17c8dffc0cbd61894a0460817bbba88e&language=en-US&page=1").then(function (response) {
-  return response.json();
-}).then(function (response) {
-  var movies = response.results;
-  var _iterator2 = _createForOfIteratorHelper(movies),
-    _step2;
-  try {
-    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
-      var serie = _step2.value;
-      console.log(serie);
+  }, {
+    key: "render",
+    value: function render() {
+      this.shadowDOM.innerHTML = "\n    <style>\n    * {\n          margin: 0;\n          padding: 0;\n          box-sizing: border-box;\n    }\n\n    :host {\n        display: flex;\n        \n        margin: 0 auto;\n        overflow-x: hidden;\n        justify-content: center;\n    }\n\n    .brand-logo {\n    font-family: \"Lalezar\", sans-serif;\n    font-size: 45px;\n    }\n    .brand-logo a {\n    color: #fff;\n    text-decoration: none;\n    }\n    .brand-logo a:hover {\n    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.22);\n    }\n    </style>\n    <div class=\"brand-logo\"><a href=\"\">biuskup</a></div>\n    ";
     }
-  } catch (err) {
-    _iterator2.e(err);
-  } finally {
-    _iterator2.f();
-  }
-  renderAllTVSeries(movies);
-});
-var renderAllTVSeries = function renderAllTVSeries(movies) {
-  var listSerieElement = document.querySelector("#listSerie");
-  listSerieElement.innerHTML = "";
-  movies.forEach(function (serie) {
-    listSerieElement.innerHTML += "\n        <div class=\"card\">\n                <img src=\"https://www.themoviedb.org/t/p/original/".concat(serie.poster_path, "\" alt=\"\" />\n                <h5 class=\"title\">").concat(serie.name, "</h5>\n        </div>\n      ");
-  });
-};
+  }]);
+  return AppBar;
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
+customElements.define("app-bar", AppBar);
 
 /***/ }),
 
@@ -151,12 +104,161 @@ var AppFooter = /*#__PURE__*/function (_HTMLElement) {
   }, {
     key: "render",
     value: function render() {
-      this.shadowDOM.innerHTML = "\n    <style>\n       :host {\n            display: block;\n            text-align: center;\n            width: 100%;\n            background-color: var(--blueCol);\n            color: white;\n        }\n        \n        h2 {\n            padding: 16px;\n        }\n\n    </style>\n    <h2>biuskup.com</h2>";
+      this.shadowDOM.innerHTML = "\n    <style>\n        * {\n          margin: 0;\n          padding: 0;\n          box-sizing: border-box;\n        }\n        \n       :host {\n            display: block;\n            text-align: center;\n            width: 100%;\n            background-color: var(--blueCol);\n            color: white;\n            \n          }\n          \n          div {\n          padding: 16px;\n\n        }\n        \n        span {\n          font-size: 12px;\n          font-weight: 200;\n        }\n        span a {\n          color: #fff;\n        }\n        span a:hover {\n          color: var(--pinkCol);\n        }\n\n        p {\n          font-size: 14px;\n          font-weight: 200;\n          color: #b0b0b0;\n        }\n\n    </style>\n    <div>\n    <p>Copyright \xA9 2022 biuskup.com. All Rights Reserved</p>\n    <span>Create with love by <a href=\"https://www.instagram.com/chuboot.id\">chuboot</a></span>\n    </div>\n    ";
     }
   }]);
   return AppFooter;
 }( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 customElements.define("app-footer", AppFooter);
+
+/***/ }),
+
+/***/ 932:
+/***/ (() => {
+
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _regeneratorRuntime() { "use strict"; /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */ _regeneratorRuntime = function _regeneratorRuntime() { return exports; }; var exports = {}, Op = Object.prototype, hasOwn = Op.hasOwnProperty, $Symbol = "function" == typeof Symbol ? Symbol : {}, iteratorSymbol = $Symbol.iterator || "@@iterator", asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator", toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag"; function define(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }), obj[key]; } try { define({}, ""); } catch (err) { define = function define(obj, key, value) { return obj[key] = value; }; } function wrap(innerFn, outerFn, self, tryLocsList) { var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator, generator = Object.create(protoGenerator.prototype), context = new Context(tryLocsList || []); return generator._invoke = function (innerFn, self, context) { var state = "suspendedStart"; return function (method, arg) { if ("executing" === state) throw new Error("Generator is already running"); if ("completed" === state) { if ("throw" === method) throw arg; return doneResult(); } for (context.method = method, context.arg = arg;;) { var delegate = context.delegate; if (delegate) { var delegateResult = maybeInvokeDelegate(delegate, context); if (delegateResult) { if (delegateResult === ContinueSentinel) continue; return delegateResult; } } if ("next" === context.method) context.sent = context._sent = context.arg;else if ("throw" === context.method) { if ("suspendedStart" === state) throw state = "completed", context.arg; context.dispatchException(context.arg); } else "return" === context.method && context.abrupt("return", context.arg); state = "executing"; var record = tryCatch(innerFn, self, context); if ("normal" === record.type) { if (state = context.done ? "completed" : "suspendedYield", record.arg === ContinueSentinel) continue; return { value: record.arg, done: context.done }; } "throw" === record.type && (state = "completed", context.method = "throw", context.arg = record.arg); } }; }(innerFn, self, context), generator; } function tryCatch(fn, obj, arg) { try { return { type: "normal", arg: fn.call(obj, arg) }; } catch (err) { return { type: "throw", arg: err }; } } exports.wrap = wrap; var ContinueSentinel = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} var IteratorPrototype = {}; define(IteratorPrototype, iteratorSymbol, function () { return this; }); var getProto = Object.getPrototypeOf, NativeIteratorPrototype = getProto && getProto(getProto(values([]))); NativeIteratorPrototype && NativeIteratorPrototype !== Op && hasOwn.call(NativeIteratorPrototype, iteratorSymbol) && (IteratorPrototype = NativeIteratorPrototype); var Gp = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(IteratorPrototype); function defineIteratorMethods(prototype) { ["next", "throw", "return"].forEach(function (method) { define(prototype, method, function (arg) { return this._invoke(method, arg); }); }); } function AsyncIterator(generator, PromiseImpl) { function invoke(method, arg, resolve, reject) { var record = tryCatch(generator[method], generator, arg); if ("throw" !== record.type) { var result = record.arg, value = result.value; return value && "object" == _typeof(value) && hasOwn.call(value, "__await") ? PromiseImpl.resolve(value.__await).then(function (value) { invoke("next", value, resolve, reject); }, function (err) { invoke("throw", err, resolve, reject); }) : PromiseImpl.resolve(value).then(function (unwrapped) { result.value = unwrapped, resolve(result); }, function (error) { return invoke("throw", error, resolve, reject); }); } reject(record.arg); } var previousPromise; this._invoke = function (method, arg) { function callInvokeWithMethodAndArg() { return new PromiseImpl(function (resolve, reject) { invoke(method, arg, resolve, reject); }); } return previousPromise = previousPromise ? previousPromise.then(callInvokeWithMethodAndArg, callInvokeWithMethodAndArg) : callInvokeWithMethodAndArg(); }; } function maybeInvokeDelegate(delegate, context) { var method = delegate.iterator[context.method]; if (undefined === method) { if (context.delegate = null, "throw" === context.method) { if (delegate.iterator["return"] && (context.method = "return", context.arg = undefined, maybeInvokeDelegate(delegate, context), "throw" === context.method)) return ContinueSentinel; context.method = "throw", context.arg = new TypeError("The iterator does not provide a 'throw' method"); } return ContinueSentinel; } var record = tryCatch(method, delegate.iterator, context.arg); if ("throw" === record.type) return context.method = "throw", context.arg = record.arg, context.delegate = null, ContinueSentinel; var info = record.arg; return info ? info.done ? (context[delegate.resultName] = info.value, context.next = delegate.nextLoc, "return" !== context.method && (context.method = "next", context.arg = undefined), context.delegate = null, ContinueSentinel) : info : (context.method = "throw", context.arg = new TypeError("iterator result is not an object"), context.delegate = null, ContinueSentinel); } function pushTryEntry(locs) { var entry = { tryLoc: locs[0] }; 1 in locs && (entry.catchLoc = locs[1]), 2 in locs && (entry.finallyLoc = locs[2], entry.afterLoc = locs[3]), this.tryEntries.push(entry); } function resetTryEntry(entry) { var record = entry.completion || {}; record.type = "normal", delete record.arg, entry.completion = record; } function Context(tryLocsList) { this.tryEntries = [{ tryLoc: "root" }], tryLocsList.forEach(pushTryEntry, this), this.reset(!0); } function values(iterable) { if (iterable) { var iteratorMethod = iterable[iteratorSymbol]; if (iteratorMethod) return iteratorMethod.call(iterable); if ("function" == typeof iterable.next) return iterable; if (!isNaN(iterable.length)) { var i = -1, next = function next() { for (; ++i < iterable.length;) { if (hasOwn.call(iterable, i)) return next.value = iterable[i], next.done = !1, next; } return next.value = undefined, next.done = !0, next; }; return next.next = next; } } return { next: doneResult }; } function doneResult() { return { value: undefined, done: !0 }; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, define(Gp, "constructor", GeneratorFunctionPrototype), define(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = define(GeneratorFunctionPrototype, toStringTagSymbol, "GeneratorFunction"), exports.isGeneratorFunction = function (genFun) { var ctor = "function" == typeof genFun && genFun.constructor; return !!ctor && (ctor === GeneratorFunction || "GeneratorFunction" === (ctor.displayName || ctor.name)); }, exports.mark = function (genFun) { return Object.setPrototypeOf ? Object.setPrototypeOf(genFun, GeneratorFunctionPrototype) : (genFun.__proto__ = GeneratorFunctionPrototype, define(genFun, toStringTagSymbol, "GeneratorFunction")), genFun.prototype = Object.create(Gp), genFun; }, exports.awrap = function (arg) { return { __await: arg }; }, defineIteratorMethods(AsyncIterator.prototype), define(AsyncIterator.prototype, asyncIteratorSymbol, function () { return this; }), exports.AsyncIterator = AsyncIterator, exports.async = function (innerFn, outerFn, self, tryLocsList, PromiseImpl) { void 0 === PromiseImpl && (PromiseImpl = Promise); var iter = new AsyncIterator(wrap(innerFn, outerFn, self, tryLocsList), PromiseImpl); return exports.isGeneratorFunction(outerFn) ? iter : iter.next().then(function (result) { return result.done ? result.value : iter.next(); }); }, defineIteratorMethods(Gp), define(Gp, toStringTagSymbol, "Generator"), define(Gp, iteratorSymbol, function () { return this; }), define(Gp, "toString", function () { return "[object Generator]"; }), exports.keys = function (object) { var keys = []; for (var key in object) { keys.push(key); } return keys.reverse(), function next() { for (; keys.length;) { var key = keys.pop(); if (key in object) return next.value = key, next.done = !1, next; } return next.done = !0, next; }; }, exports.values = values, Context.prototype = { constructor: Context, reset: function reset(skipTempReset) { if (this.prev = 0, this.next = 0, this.sent = this._sent = undefined, this.done = !1, this.delegate = null, this.method = "next", this.arg = undefined, this.tryEntries.forEach(resetTryEntry), !skipTempReset) for (var name in this) { "t" === name.charAt(0) && hasOwn.call(this, name) && !isNaN(+name.slice(1)) && (this[name] = undefined); } }, stop: function stop() { this.done = !0; var rootRecord = this.tryEntries[0].completion; if ("throw" === rootRecord.type) throw rootRecord.arg; return this.rval; }, dispatchException: function dispatchException(exception) { if (this.done) throw exception; var context = this; function handle(loc, caught) { return record.type = "throw", record.arg = exception, context.next = loc, caught && (context.method = "next", context.arg = undefined), !!caught; } for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i], record = entry.completion; if ("root" === entry.tryLoc) return handle("end"); if (entry.tryLoc <= this.prev) { var hasCatch = hasOwn.call(entry, "catchLoc"), hasFinally = hasOwn.call(entry, "finallyLoc"); if (hasCatch && hasFinally) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } else if (hasCatch) { if (this.prev < entry.catchLoc) return handle(entry.catchLoc, !0); } else { if (!hasFinally) throw new Error("try statement without catch or finally"); if (this.prev < entry.finallyLoc) return handle(entry.finallyLoc); } } } }, abrupt: function abrupt(type, arg) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc <= this.prev && hasOwn.call(entry, "finallyLoc") && this.prev < entry.finallyLoc) { var finallyEntry = entry; break; } } finallyEntry && ("break" === type || "continue" === type) && finallyEntry.tryLoc <= arg && arg <= finallyEntry.finallyLoc && (finallyEntry = null); var record = finallyEntry ? finallyEntry.completion : {}; return record.type = type, record.arg = arg, finallyEntry ? (this.method = "next", this.next = finallyEntry.finallyLoc, ContinueSentinel) : this.complete(record); }, complete: function complete(record, afterLoc) { if ("throw" === record.type) throw record.arg; return "break" === record.type || "continue" === record.type ? this.next = record.arg : "return" === record.type ? (this.rval = this.arg = record.arg, this.method = "return", this.next = "end") : "normal" === record.type && afterLoc && (this.next = afterLoc), ContinueSentinel; }, finish: function finish(finallyLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.finallyLoc === finallyLoc) return this.complete(entry.completion, entry.afterLoc), resetTryEntry(entry), ContinueSentinel; } }, "catch": function _catch(tryLoc) { for (var i = this.tryEntries.length - 1; i >= 0; --i) { var entry = this.tryEntries[i]; if (entry.tryLoc === tryLoc) { var record = entry.completion; if ("throw" === record.type) { var thrown = record.arg; resetTryEntry(entry); } return thrown; } } throw new Error("illegal catch attempt"); }, delegateYield: function delegateYield(iterable, resultName, nextLoc) { return this.delegate = { iterator: values(iterable), resultName: resultName, nextLoc: nextLoc }, "next" === this.method && (this.arg = undefined), ContinueSentinel; } }, exports; }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+//slider
+var getSlider = /*#__PURE__*/function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+    var response, responseJson, moviess, movies;
+    return _regeneratorRuntime().wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return fetch("https://api.themoviedb.org/3/movie/now_playing?api_key=17c8dffc0cbd61894a0460817bbba88e&language=en-US&page=1");
+          case 2:
+            response = _context.sent;
+            _context.next = 5;
+            return response.json();
+          case 5:
+            responseJson = _context.sent;
+            moviess = responseJson.results;
+            movies = moviess.slice(0, 5);
+            renderAllSlides(movies);
+          case 9:
+          case "end":
+            return _context.stop();
+        }
+      }
+    }, _callee);
+  }));
+  return function getSlider() {
+    return _ref.apply(this, arguments);
+  };
+}();
+var renderAllSlides = function renderAllSlides(slides) {
+  var slidesCom = document.querySelector(".swiper-wrapper");
+  slidesCom.innerHTML = "";
+  slides.forEach(function (sld) {
+    slidesCom.innerHTML += "\n        <div class=\"swiper-slide\">\n            <div class=\"item\">\n                <img src=\"https://www.themoviedb.org/t/p/original/".concat(sld.backdrop_path, "\" alt=\"slider-image\" />\n                <div class=\"slide-text\">\n                    <h1>").concat(sld.title, "</h1>\n                    <p>Release Date: ").concat(sld.release_date, "</p>\n                    \n                </div>\n            </div>\n        </div>\n\n      ");
+  });
+};
+getSlider();
+
+//card
+
+var getCards = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
+    var response, responseJson, movies;
+    return _regeneratorRuntime().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            _context2.next = 2;
+            return fetch("https://api.themoviedb.org/3/movie/popular?api_key=17c8dffc0cbd61894a0460817bbba88e&language=en-US&page=1");
+          case 2:
+            response = _context2.sent;
+            _context2.next = 5;
+            return response.json();
+          case 5:
+            responseJson = _context2.sent;
+            movies = responseJson.results;
+            renderAllMovies(movies);
+          case 8:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+  return function getCards() {
+    return _ref2.apply(this, arguments);
+  };
+}();
+var getSimiliar = function getSimiliar(movid) {
+  fetch("https://api.themoviedb.org/3/movie/".concat(movid, "/similar?api_key=17c8dffc0cbd61894a0460817bbba88e&language=en-US")).then(function (response) {
+    return response.json();
+  }).then(function (resmv) {
+    var movies = resmv.results;
+    renderAllMovies(movies);
+  });
+};
+function showMovDetail(resmovie) {
+  var nameGenre = resmovie.genres.map(function (genre) {
+    return genre.name;
+  });
+  return "\n  <div class=\"card-wide\">\n  <img src=\"https://www.themoviedb.org/t/p/original/".concat(resmovie.backdrop_path, "\" alt=\"\" data-id=\"").concat(resmovie.id, "\" />\n        <div class=\"container\">\n          <div class=\"card-content\">\n          \n          <img src=\"https://www.themoviedb.org/t/p/original/").concat(resmovie.poster_path, "\" alt=\"\" data-id=\"").concat(resmovie.id, "\" />\n              <div class=\"caption-text\">\n                <h1 class=\"title\">").concat(resmovie.title, "</h1>\n                <p>").concat(resmovie.release_date.slice(0, 4), "</p>\n                <div class=\"genre\">").concat(resmovie.genres.map(function (genre) {
+    return "<span>".concat(genre.name, "</span>");
+  }).join(""), "</div>\n\n                <p class=\"overview ellipses\">").concat(resmovie.overview, "</p>\n                <a class=\"readmore\">Read More...</a>\n              </div>\n              \n          </div>      \n        </div>\n  </div>      \n  ");
+}
+var renderAllMovies = function renderAllMovies(movies) {
+  var listMovieElement = document.querySelector("#listMovie");
+  listMovieElement.innerHTML = "";
+  movies.forEach(function (movie) {
+    listMovieElement.innerHTML += "\n        <div class=\"card\">\n                <img src=\"https://www.themoviedb.org/t/p/original/".concat(movie.poster_path, "\" alt=\"\" data-id=\"").concat(movie.id, "\" />\n                <h5 class=\"title\">").concat(movie.title, "</h5>\n                \n                \n        </div>\n      ");
+  });
+  var detailMovie = document.querySelectorAll(".card img");
+  detailMovie.forEach(function (img) {
+    img.addEventListener("click", function () {
+      var movieID = this.dataset.id;
+      topFunction();
+      fetch("https://api.themoviedb.org/3/movie/".concat(movieID, "?api_key=17c8dffc0cbd61894a0460817bbba88e&language=en-US")).then(function (response) {
+        return response.json();
+      }).then(function (resmovie) {
+        var nameGenre = resmovie.genres.map(function (genre) {
+          return genre.name;
+        });
+        console.log(nameGenre);
+        var detailMovie = showMovDetail(resmovie);
+        var secMovie = document.querySelector("#hero");
+        secMovie.innerHTML = detailMovie;
+        var btnReadmore = document.querySelector(".readmore");
+        var pOverview = document.querySelector(".overview");
+        btnReadmore.addEventListener("click", function () {
+          pOverview.classList.toggle("ellipses");
+          if (btnReadmore.innerText === "View Less") {
+            btnReadmore.innerText = "Read More";
+          } else {
+            btnReadmore.innerText = "View Less";
+          }
+        });
+        getSimiliar(movieID);
+      });
+    });
+  });
+};
+getCards();
+
+//change bg when scroll
+var navbar = document.querySelector("header");
+window.addEventListener("scroll", function () {
+  var valueScroll = window.scrollY;
+  if (valueScroll < 70) {
+    navbar.classList.remove("bg-nav-color");
+  } else {
+    navbar.classList.add("bg-nav-color");
+  }
+});
+
+//scroll top
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
 /***/ }),
 
@@ -11496,16 +11598,13 @@ core.use(modules);
 
 // import styles bundle
 
-var swiper = new core(".mySwiper", {
-  spaceBetween: 30,
-  centeredSlides: true,
+var swiper = new core(".swiper-container", {
+  pagination: {
+    el: ".swiper-pagination"
+  },
   autoplay: {
     delay: 2500,
     disableOnInteraction: false
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true
   },
   navigation: {
     nextEl: ".swiper-button-next",

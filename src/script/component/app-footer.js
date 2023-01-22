@@ -10,20 +10,49 @@ class AppFooter extends HTMLElement {
   render() {
     this.shadowDOM.innerHTML = `
     <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        
        :host {
             display: block;
             text-align: center;
             width: 100%;
             background-color: var(--blueCol);
             color: white;
+            
+          }
+          
+          div {
+          padding: 16px;
+
         }
         
-        h2 {
-            padding: 16px;
+        span {
+          font-size: 12px;
+          font-weight: 200;
+        }
+        span a {
+          color: #fff;
+        }
+        span a:hover {
+          color: var(--pinkCol);
+        }
+
+        p {
+          font-size: 14px;
+          font-weight: 200;
+          color: #b0b0b0;
         }
 
     </style>
-    <h2>biuskup.com</h2>`;
+    <div>
+    <p>Copyright © 2022 biuskup.com. All Rights Reserved</p>
+    <span>Create with love by <a href="https://www.instagram.com/chuboot.id">chuboot</a></span>
+    </div>
+    `;
   }
 }
 
